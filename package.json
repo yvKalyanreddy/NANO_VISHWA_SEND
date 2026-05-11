@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "lint": "cd frontend && npm run lint",
+    "preview": "cd frontend && npm run preview"
+  },
+  "dependencies": {
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.14.0"
+  }
+}

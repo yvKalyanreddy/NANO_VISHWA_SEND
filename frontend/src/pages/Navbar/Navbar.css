@@ -1,0 +1,289 @@
+/* ===========================
+   Bowls & Bottles — Navbar
+   Brand: Dark Green #1e5128, Orange #f4a228
+   Background: Warm Cream #f0e9d6
+   Border: Teal #4bbfb8
+   =========================== */
+
+
+
+/* ---- Base ---- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  background: #dfd6bd;
+  font-family: 'Noto Sans', sans-serif;
+  padding: 0 1.25rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0,0,0,0.08); /* changed from all borders to just bottom so it doesn't cap the sides */
+  opacity: 1;
+}
+
+/* ---- Inner Layout ---- */
+.navbar__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 0.5rem;
+}
+
+/* ---- Logo ---- */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.navbar__logo img {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.navbar__logo:hover img {
+  transform: scale(1.04);
+}
+
+/* ---- Nav Links ---- */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.navbar__link {
+  position: relative;
+  text-decoration: none;
+  color: #193B0A;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  transition: color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 2px;
+  background: #f4a228;
+  border-radius: 2px;
+  transition: transform 0.25s ease;
+}
+
+.navbar__link:hover {
+  color: #f4a228;
+}
+
+.navbar__link:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.navbar__link--active {
+  color: #f4a228;
+  font-weight: 600;
+}
+
+.navbar__link--active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ---- Auth Buttons ---- */
+.navbar__auth {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+}
+
+.navbar__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0 1.2rem;
+  height: 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+/* Outline — Sign In */
+.navbar__btn--outline {
+  color: #193B0A;
+  border: 1px solid #193B0A;
+  background: transparent;
+  padding: 0 0.8rem;
+  min-width: unset;
+}
+
+.navbar__btn--outline:hover {
+  background: #1e5128;
+  color: #fff;
+  border-color: #1e5128;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(30, 81, 40, 0.2);
+}
+
+/* Filled — Subscription */
+.navbar__btn--filled {
+  color: #193B0A;
+  background: #FF8C33;
+  border: 2px solid transparent;
+  box-shadow: 0 3px 10px rgba(255, 140, 51, 0.3);
+
+}
+
+.navbar__btn--filled:hover {
+  background: #e87720;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(255, 140, 51, 0.4);
+}
+
+/* ---- Hamburger ---- */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.navbar__hamburger:hover {
+  background: rgba(30, 81, 40, 0.08);
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #193B0A;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.navbar__hamburger--open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__hamburger--open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.navbar__hamburger--open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---- Mobile Menu ---- */
+.navbar__mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: #f0e9d6;
+  border-top: 1px solid rgba(75, 191, 184, 0.4);
+  padding: 1rem 1.5rem 1.5rem;
+  gap: 0.25rem;
+  animation: slideDown 0.25s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar__mobile-link {
+  text-decoration: none;
+  color: #193B0A;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar__mobile-link:hover,
+.navbar__mobile-link--active {
+  background: rgba(244, 162, 40, 0.1);
+  color: #f4a228;
+  font-weight: 600;
+}
+
+.navbar__mobile-auth {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(75, 191, 184, 0.3);
+}
+
+.navbar__mobile-auth .navbar__btn {
+  flex: 1;
+  text-align: center;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+
+  .navbar__links,
+  .navbar__auth {
+    display: none;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+
+  .navbar__mobile-menu {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  .navbar__logo img {
+    height: 38px;
+  }
+}

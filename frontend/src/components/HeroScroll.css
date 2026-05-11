@@ -1,0 +1,621 @@
+/* ================================================================
+   HeroScroll.css
+   ─────────────
+   Styles for the GSAP + Canvas frame-scroll hero section.
+   Brand colours:  #193B0A (dark green), #FF9500 (orange)
+   Navbar BG:      #dfd6bd (warm cream)
+   Font:           'Noto Sans', sans-serif  (site-wide standard)
+   ================================================================ */
+
+/* ── Scroll wrapper ── */
+.hero-scroll-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300vh;
+}
+
+/* ── Sticky panel ── */
+.hero-scroll-sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* ── Canvas wrap ── */
+.hero-scroll-canvas-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-scroll-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Vignette overlay ── */
+.hero-scroll-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center,
+      transparent 40%,
+      rgba(58, 58, 58, 0.803) 100%),
+    linear-gradient(to top,
+      rgba(255, 140, 51, 0.08) 0%,
+      transparent 40%);
+}
+
+/* ================================================================
+   PHASE TEXT OVERLAYS
+   ================================================================ */
+.hero-scroll-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding-top: 104px;
+  padding-left: 24px;
+  padding-right: 24px;
+  pointer-events: none;
+}
+
+.hero-scroll-overlay__heading {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 800;
+  font-size: clamp(40px, 7vw, 90px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: #193B0A;
+  margin: 0 0 16px 0;
+  text-shadow: 0 2px 20px rgba(255, 255, 255, 0.25);
+}
+
+.hero-scroll-overlay__sub {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 500;
+  font-size: clamp(16px, 2.2vw, 24px);
+  line-height: 1.6;
+  color: #193B0A;
+  max-width: 560px;
+  margin: 0;
+  opacity: 0.85;
+  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* ================================================================
+   SCROLL HINT — inside first phase overlay, dark green
+   ================================================================ */
+.hero-scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  color: #193B0A;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  opacity: 0.75;
+}
+
+.hero-scroll-hint svg {
+  animation: scrollBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(6px); }
+}
+
+/* ================================================================
+   FINAL HERO STATE (ACT 3) — with logo glow
+   ================================================================ */
+.hero-scroll-final {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-scroll-final__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(25, 59, 10, 0.45) 0%,
+      rgba(25, 59, 10, 0.75) 100%),
+    url('/Heroimage.jpeg') center / cover no-repeat;
+  background-color: #1a3a0b;
+  z-index: 0;
+}
+
+.hero-scroll-final__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 24px;
+  animation: heroFinalReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroFinalReveal {
+  0%   { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Final state logo with prominent glow ── */
+.hero-scroll-final__logo {
+  width: clamp(80px, 12vw, 130px);
+  height: auto;
+  margin-bottom: 20px;
+  filter:
+    drop-shadow(0 0 30px rgba(255, 149, 0, 0.6))
+    drop-shadow(0 0 60px rgba(255, 149, 0, 0.35))
+    drop-shadow(0 4px 16px rgba(0, 0, 0, 0.4));
+  animation: logoGlow 3s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 30px rgba(255, 149, 0, 0.6))
+      drop-shadow(0 0 60px rgba(255, 149, 0, 0.35))
+      drop-shadow(0 4px 16px rgba(0, 0, 0, 0.4));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 40px rgba(255, 149, 0, 0.8))
+      drop-shadow(0 0 80px rgba(255, 149, 0, 0.5))
+      drop-shadow(0 4px 20px rgba(0, 0, 0, 0.5));
+  }
+}
+
+.hero-scroll-final__title {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 800;
+  font-size: clamp(44px, 8vw, 100px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: #FF9500;
+  margin: 0 0 16px 0;
+  text-shadow: 0 4px 48px rgba(0, 0, 0, 0.5);
+}
+
+.hero-scroll-final__tagline {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 400;
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 480px;
+  margin: 0 0 40px 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.hero-scroll-final__cta-row {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-scroll-final__btn {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 48px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.25s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.hero-scroll-final__btn--primary {
+  background-color: #FF9500;
+  color: #1a1a1a;
+  border: 2px solid #FF9500;
+}
+
+.hero-scroll-final__btn--primary:hover {
+  background-color: #e68a00;
+  border-color: #e68a00;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(255, 149, 0, 0.4);
+}
+
+/* ================================================================
+   NAVBAR BLOCKER — sits above navbar during loading
+   ================================================================ */
+.hero-scroll-nav-blocker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 1100;
+  cursor: default;
+}
+
+/* ── Floating patience quotes with react-icons ── */
+.hero-scroll-float-quote {
+  position: fixed;
+  z-index: 1200;
+  pointer-events: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #FF9500;
+  background: rgba(25, 59, 10, 0.92);
+  padding: 8px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 149, 0, 0.25);
+  transform: translate(-50%, -100%);
+  animation: floatQuoteUp 2.2s ease-out forwards;
+}
+
+.hero-scroll-float-quote__icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: #FF9500;
+  opacity: 0.9;
+}
+
+@keyframes floatQuoteUp {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -100%) scale(0.85);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -120%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -220%) scale(0.9);
+  }
+}
+
+/* ================================================================
+   LOADING OVERLAY — warm cream background (matches navbar #dfd6bd)
+   ================================================================ */
+.hero-scroll-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Warm cream gradient matching navbar — much brighter & readable */
+  background: linear-gradient(160deg, #d4ccb4 0%, #dfd6bd 40%, #e8e0ca 100%);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.hero-scroll-loading--done {
+  pointer-events: none;
+}
+
+.hero-scroll-loading__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 440px;
+  max-width: 90vw;
+}
+
+/* ── Floating background orbs ── */
+.hero-scroll-loading__orbs {
+  position: absolute;
+  inset: -200px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-scroll-loading__orb {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  filter: blur(60px);
+}
+
+.hero-scroll-loading__orb--1 {
+  width: 300px;
+  height: 300px;
+  background: #FF9500;
+  top: -80px;
+  left: -60px;
+  animation: orbFloat1 6s ease-in-out infinite;
+}
+
+.hero-scroll-loading__orb--2 {
+  width: 250px;
+  height: 250px;
+  background: #193B0A;
+  bottom: -60px;
+  right: -40px;
+  animation: orbFloat2 8s ease-in-out infinite;
+}
+
+.hero-scroll-loading__orb--3 {
+  width: 180px;
+  height: 180px;
+  background: #FF9500;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: orbFloat3 7s ease-in-out infinite;
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(30px, 20px); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(-25px, -15px); }
+}
+
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50%      { transform: translate(-50%, -50%) scale(1.3); }
+}
+
+/* ── Website logo — BIGGER ── */
+.hero-scroll-loading__logo-img {
+  position: relative;
+  z-index: 1;
+  width: 300px;
+  height: auto;
+  animation: logoBreath 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 4px 20px rgba(25, 59, 10, 0.15));
+}
+
+@keyframes logoBreath {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 4px 20px rgba(25, 59, 10, 0.15));
+  }
+  50% {
+    transform: scale(1.04);
+    filter: drop-shadow(0 6px 28px rgba(25, 59, 10, 0.25));
+  }
+}
+
+/* ── Tagline under logo ── */
+.hero-scroll-loading__tagline {
+  position: relative;
+  z-index: 1;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: rgba(25, 59, 10, 0.55);
+  text-align: center;
+  line-height: 1.5;
+  margin: -4px 0 4px 0;
+  letter-spacing: 0.3px;
+  font-style: italic;
+}
+
+/* ── Progress bar ── */
+.hero-scroll-loading__bar-track {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 4px;
+  background: rgba(25, 59, 10, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.hero-scroll-loading__bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF9500, #ffb647, #FF9500);
+  background-size: 200% 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  animation: barShimmer 2s ease-in-out infinite;
+}
+
+@keyframes barShimmer {
+  0%, 100% { background-position: 0% 0%; }
+  50%      { background-position: 100% 0%; }
+}
+
+/* ── Fun rotating tips (with icon + bigger text) ── */
+.hero-scroll-loading__tip-area {
+  position: relative;
+  z-index: 1;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.hero-scroll-loading__tip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: tipSlideIn 0.5s ease-out;
+}
+
+.hero-scroll-loading__tip-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(25, 59, 10, 0.08);
+  color: #193B0A;
+}
+
+.hero-scroll-loading__tip-text {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #193B0A;
+  line-height: 1.45;
+  text-align: left;
+  opacity: 0.8;
+}
+
+@keyframes tipSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Interactive "tap for fact" button ── */
+.hero-scroll-loading__interact-btn {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: rgba(25, 59, 10, 0.45);
+  background: rgba(25, 59, 10, 0.05);
+  border: 1px solid rgba(25, 59, 10, 0.12);
+  border-radius: 24px;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.hero-scroll-loading__interact-btn:hover {
+  color: #193B0A;
+  background: rgba(25, 59, 10, 0.08);
+  border-color: rgba(25, 59, 10, 0.2);
+  transform: translateY(-1px);
+}
+
+.hero-scroll-loading__interact-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* ================================================================
+   MOBILE RESPONSIVE
+   ================================================================ */
+@media (max-width: 768px) {
+  .hero-scroll-overlay {
+    padding-top: 80px;
+  }
+
+  .hero-scroll-overlay__heading {
+    font-size: clamp(32px, 10vw, 48px);
+    letter-spacing: -1px;
+  }
+
+  .hero-scroll-overlay__sub {
+    font-size: clamp(14px, 3.5vw, 18px);
+    max-width: 340px;
+  }
+
+  .hero-scroll-hint {
+    margin-top: 24px;
+    font-size: 12px;
+  }
+
+  .hero-scroll-final__logo {
+    width: clamp(56px, 16vw, 80px);
+    margin-bottom: 14px;
+  }
+
+  .hero-scroll-final__title {
+    font-size: clamp(36px, 11vw, 56px);
+    letter-spacing: -1px;
+  }
+
+  .hero-scroll-final__tagline {
+    font-size: clamp(14px, 3.5vw, 18px);
+    margin-bottom: 28px;
+  }
+
+  .hero-scroll-final__btn {
+    width: auto;
+    padding: 14px 36px;
+    font-size: 15px;
+  }
+
+  .hero-scroll-nav-blocker {
+    height: 64px;
+  }
+
+  .hero-scroll-float-quote {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .hero-scroll-loading__inner {
+    width: 300px;
+    gap: 16px;
+  }
+
+  .hero-scroll-loading__logo-img {
+    width: 200px;
+  }
+
+  .hero-scroll-loading__tagline {
+    font-size: 13px;
+  }
+
+  .hero-scroll-loading__tip-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .hero-scroll-loading__tip-text {
+    font-size: 14px;
+  }
+
+  .hero-scroll-loading__interact-btn {
+    font-size: 12px;
+    padding: 6px 16px;
+  }
+}

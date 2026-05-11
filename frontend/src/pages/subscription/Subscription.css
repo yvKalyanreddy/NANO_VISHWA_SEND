@@ -1,0 +1,693 @@
+/* ===========================
+   Subscription Section
+   =========================== */
+
+.subscription-page {
+  width: 100%;
+}
+
+.subscription {
+  background-color: #1a3617; /* Dark Forest Green */
+  min-height: 100vh;
+  padding: 8rem 1.25rem 6rem;
+  font-family: 'Noto Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.subscription__container {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subscription__header {
+  text-align: center;
+  margin-bottom: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subscription__pill {
+  background-color: #ffffff;
+  color: #f4a228;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.subscription__title {
+  color: #ffffff;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.01em;
+}
+
+.subscription__description {
+  color: #aebfab;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  margin: 0 0 2rem 0;
+  max-width: 650px;
+}
+
+.subscription__cta {
+  background-color: #244822;
+  color: #ffffff;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.9rem 2.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.subscription__cta:hover {
+  background-color: #2e592a;
+}
+
+.subscription__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.subscription__card {
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.subscription__image-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #e5e5e5;
+}
+
+/* ===========================
+   Plans Section
+   =========================== */
+
+.plans {
+  background-color: #fcf6ef; /* Light cream background */
+  padding: 6rem 1.25rem 8rem;
+  font-family: 'Noto Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.plans__container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.plans__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.plans__title {
+  color: #1a3617;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+}
+
+.plans__description {
+  color: #7a7a7a;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.plans__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  margin-bottom: 4rem;
+  align-items: center;
+}
+
+.plans__card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.plans__card:hover {
+  background-color: #1a3617;
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(26, 54, 23, 0.2);
+  z-index: 1;
+}
+
+.plans__card-label {
+  background-color: #fff5eb;
+  color: #f4a228;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+}
+
+.plans__card:hover .plans__card-label {
+  background-color: #2b5226;
+  color: #ffffff;
+}
+
+.plans__card-icon {
+  margin-bottom: 1rem;
+  color: #1a3617;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #eee;
+  border-radius: 12px;
+}
+
+.plans__card:hover .plans__card-icon {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.plans__card-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 0 0.25rem 0;
+  color: #1a3617;
+}
+
+.plans__card:hover .plans__card-title {
+  color: #ffffff;
+}
+
+.plans__card-subtitle {
+  font-size: 0.85rem;
+  color: #888;
+  margin: 0 0 1.5rem 0;
+}
+
+.plans__card:hover .plans__card-subtitle {
+  color: #aebfab;
+}
+
+.plans__card-price-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.plans__card-currency {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-right: 0.2rem;
+  color: #666;
+}
+
+.plans__card:hover .plans__card-currency {
+  color: #ddd;
+}
+
+.plans__card-price {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #1a3617;
+}
+
+.plans__card:hover .plans__card-price {
+  color: #ffffff;
+}
+
+.plans__card-currency-code {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-left: 0.3rem;
+  color: #666;
+}
+
+.plans__card:hover .plans__card-currency-code {
+  color: #ddd;
+}
+
+.plans__card-price-subtext {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0 0 1.5rem 0;
+}
+
+.plans__card:hover .plans__card-price-subtext {
+  color: #aebfab;
+}
+
+.plans__card-divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 0 0 1.5rem 0;
+}
+
+.plans__card:hover .plans__card-divider {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.plans__card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  width: 100%;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.plans__card-features li {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.2rem;
+  line-height: 1.4;
+}
+
+.plans__card:hover .plans__card-features li {
+  color: #e0e0e0;
+}
+
+.plans__card-features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 6px;
+  height: 6px;
+  background-color: #f4a228;
+  border-radius: 50%;
+}
+
+.plans__card-btn {
+  width: 100%;
+  background-color: #1a3617;
+  color: #ffffff;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  margin-bottom: 1rem;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.plans__card-btn:hover {
+  opacity: 0.9;
+}
+
+.plans__card:hover .plans__card-btn {
+  background-color: #f4a228;
+  color: #ffffff;
+}
+
+.plans__card-footer-text {
+  font-size: 0.75rem;
+  color: #999;
+  margin: 0;
+}
+
+.plans__card:hover .plans__card-footer-text {
+  color: #aebfab;
+}
+
+/* Bottom Banner */
+.plans__banner {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  width: 100%;
+}
+
+.plans__banner-left {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.plans__banner-title {
+  color: #1a3617;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.plans__banner-stats {
+  display: flex;
+  gap: 1rem;
+}
+
+.plans__banner-stat-box {
+  background-color: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.plans__banner-stat-number {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a3617;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.plans__banner-stat-text {
+  font-size: 0.75rem;
+  color: #777;
+}
+
+.plans__banner-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.plans__banner-desc {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.plans__banner-link {
+  color: #1a3617;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.plans__banner-link:hover {
+  text-decoration: underline;
+}
+
+/* ===========================
+   How It Works Section
+   =========================== */
+
+.how-it-works {
+  background-color: #f49435; /* Bright orange */
+  padding: 6rem 1.25rem 8rem;
+  font-family: 'Noto Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.how-it-works__container {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.how-it-works__header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.how-it-works__title {
+  color: #1a3617;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+}
+
+.how-it-works__description {
+  color: #333333;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.how-it-works__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.how-it-works__step {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.how-it-works__step-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 500px;
+}
+
+.how-it-works__step-pill {
+  background-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0.3rem 1.2rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+}
+
+.how-it-works__step-title {
+  color: #1a3617;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+}
+
+.how-it-works__step-desc {
+  color: #2a2a2a;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.how-it-works__step-image {
+  flex: 1;
+  max-width: 500px;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.how-it-works__image-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #e5e5e5;
+}
+
+/* ===========================
+   FAQ Section
+   =========================== */
+
+.faq {
+  background-color: #faecd6; /* Warm cream background */
+  padding: 6rem 1.25rem 8rem;
+  font-family: 'Noto Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.faq__container {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.faq__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.faq__title {
+  color: #1a3617;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+}
+
+.faq__description {
+  color: #7a7a7a;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.faq__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.faq__card {
+  background-color: #f6f3eb; /* Light beige/grey card */
+  border-radius: 12px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.faq__question {
+  color: #1a3617;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+}
+
+.faq__answer {
+  color: #7a7a7a;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===========================
+   Responsive Adjustments
+   =========================== */
+
+@media (max-width: 1024px) {
+  .plans__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .plans__card--popular {
+    transform: none;
+  }
+
+  .plans__banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 900px) {
+  .subscription__title {
+    font-size: 3rem;
+  }
+  
+  .subscription__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .how-it-works__step {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .how-it-works__step-content {
+    align-items: center;
+  }
+
+  .faq__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .subscription {
+    padding: 6rem 1rem 4rem;
+  }
+  
+  .subscription__title {
+    font-size: 2.5rem;
+  }
+  
+  .subscription__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plans__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plans__banner-stats {
+    flex-direction: column;
+  }
+
+  .how-it-works {
+    padding: 4rem 1rem 5rem;
+  }
+
+  .how-it-works__title {
+    font-size: 2.2rem;
+  }
+
+  .how-it-works__step-title {
+    font-size: 1.8rem;
+  }
+
+  .faq {
+    padding: 4rem 1rem 5rem;
+  }
+
+  .faq__title {
+    font-size: 2.2rem;
+  }
+}

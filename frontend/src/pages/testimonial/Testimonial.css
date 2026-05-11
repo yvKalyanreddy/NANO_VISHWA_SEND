@@ -1,0 +1,412 @@
+/* ══════════════════════════════════════
+   Testimonial Page — Testimonial.css
+   ══════════════════════════════════════ */
+
+.tpage {
+  background-color: #EDE8D6;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/* ── Hero ── */
+.t-hero {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.t-hero__img-placeholder {
+  position: absolute;
+  inset: 0;
+  /* swap this background with your real image:
+     background: url('../../../assets/testimonial/hero.jpg') center/cover no-repeat; */
+  background: linear-gradient(135deg, #3a5c25 0%, #1a3d0a 50%, #2d5119 100%);
+}
+
+.t-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(25, 59, 10, 0.50);
+}
+
+.t-hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.t-hero__heading {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #FA8C2F;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+.t-hero__sub {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  color: #ffffff;
+  line-height: 1.65;
+  margin: 0;
+  opacity: 0.92;
+}
+
+/* ── Stats ── */
+.t-stats {
+  padding: 56px 40px;
+}
+
+.t-stats__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.t-stat-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  box-shadow: 0 2px 12px rgba(25, 59, 10, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.t-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(25, 59, 10, 0.12);
+}
+
+.t-stat-icon {
+  width: 48px;
+  height: 48px;
+  background: #FFF4EB;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.t-stat-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.t-stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+  font-weight: 500;
+}
+
+.t-stat-value {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FA8C2F;
+  line-height: 1;
+}
+
+.t-stat-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #193B0A;
+  margin: 2px 0 0;
+}
+
+.t-stat-desc {
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Spotlight ── */
+.t-spotlight {
+  padding: 80px 60px;
+  background: #FAF5ED;
+}
+
+.t-spotlight__inner {
+  max-width: 1060px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+/* Image placeholder — swap for <img> when ready */
+.t-spotlight__img-placeholder {
+  aspect-ratio: 3/4;
+  border-radius: 24px;
+  /* swap this with: background: url('...') center/cover no-repeat; */
+  background: #c8c0b4;
+}
+
+.t-spotlight__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Outline stars */
+.t-outline-stars {
+  display: flex;
+  gap: 5px;
+}
+
+.t-outline-stars svg {
+  width: 20px;
+  height: 20px;
+}
+
+.t-spotlight__quote {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 700;
+  color: #193B0A;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.t-spotlight__body {
+  font-size: 0.92rem;
+  color: #555;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.t-spotlight__author {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.t-spotlight__name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #193B0A;
+}
+
+.t-spotlight__role {
+  font-size: 0.82rem;
+  color: #999;
+}
+
+/* ── Reviews Grid ── */
+.t-reviews {
+  background: #FA8C2F;
+  padding: 72px 40px;
+}
+
+.t-reviews__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.t-reviews__title {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: #193B0A;
+  margin: 0 0 14px;
+}
+
+.t-reviews__sub {
+  font-size: 0.95rem;
+  color: #193B0A;
+  opacity: 0.85;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.t-reviews__grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.t-review-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.t-review-card__text {
+  font-size: 0.88rem;
+  color: #333;
+  line-height: 1.75;
+  font-style: italic;
+  margin: 0;
+  flex: 1;
+}
+
+.t-review-card__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+/* Avatar placeholder — replace with <img> when ready */
+.t-review-card__avatar {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  background: #d6d0c8;
+}
+
+.t-review-card__name {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #193B0A;
+}
+
+.t-review-card__role {
+  display: block;
+  font-size: 0.78rem;
+  color: #999;
+  margin-top: 2px;
+}
+
+/* ── CTA Block ── */
+.t-cta {
+  padding: 80px 40px;
+}
+
+.t-cta__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #193B0A;
+  border-radius: 20px;
+  padding: 64px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 32px rgba(25, 59, 10, 0.1);
+}
+
+.t-cta__title {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 16px;
+}
+
+.t-cta__sub {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 0 32px;
+}
+
+.t-cta__buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.t-cta__btn {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.t-cta__btn--primary {
+  background: #FA8C2F;
+  color: #193B0A;
+}
+
+.t-cta__btn--primary:hover {
+  background: #ff9d47;
+}
+
+.t-cta__btn--outline {
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
+}
+
+.t-cta__btn--outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .t-stats__inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .t-spotlight__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .t-spotlight__img-placeholder {
+    aspect-ratio: 16/9;
+  }
+
+}
+
+@media (max-width: 640px) {
+  .t-hero {
+    height: 260px;
+  }
+
+  .t-stats {
+    padding: 36px 20px;
+  }
+
+  .t-stats__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .t-spotlight {
+    padding: 48px 20px;
+  }
+
+  .t-reviews {
+    padding: 48px 20px;
+  }
+
+  .t-reviews__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .t-cta {
+    padding: 32px 20px;
+  }
+  .t-cta__inner {
+    padding: 40px 20px;
+  }
+}
